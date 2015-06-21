@@ -1,0 +1,18 @@
+<p>Are you a pet owner / shelter representative? : {{fludata.model.usertype}}</p>
+      <select ng-model="fludata.model.usertype" style="height:30px;color:black">
+        <option ng-repeat="item in types" value="{{item}}">{{item}}</option>
+      </select>
+
+      <p>Please specify your location : {{fludata.model.state+' - '+fludata.model.city+' - '+fludata.model.zipcode}}</p>
+
+      <select ng-model="fludata.model.state" style="height:30px;color:black">
+        <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
+      </select>
+      <select ng-model="fludata.model.city" style="height:30px;color:black">
+        <option ng-repeat="item in cities" value="{{item}}">{{item}}</option>
+      </select>
+      <select ng-model="fludata.model.zipcode" style="height:30px;color:black">
+        <option ng-repeat="item in zipcodes" value="{{item}}">{{item}}</option>
+      </select>
+
+      <button class="btn btn-lg btn-info" ng-click="goStep2()">Continue</button>
