@@ -13,17 +13,17 @@
         $stateProvider
         .state('index', {
             url: '/',
-            templateUrl: 'templates/welcome.html',
+            templateUrl: 'site/templates/welcome.html',
             controller: 'welcomeController'
         })
         .state('step1', {
             url: '/step1',
-            templateUrl: 'templates/step1.html',
+            templateUrl: 'site/templates/step1.html',
             controller: 'step1Ctrl'
         })
         .state('step2', {
             url: '/step2',
-            templateUrl: 'templates/step2.html',
+            templateUrl: 'site/templates/step2.html',
             controller: 'step2Ctrl'
         });
        
