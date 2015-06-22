@@ -1,0 +1,44 @@
+<h1>Shelter Representative</h1>
+
+<p>How many dogs are currently at your shelter? </p>
+<input type="number" ng-model="fludata.model.dogNumber" style="height:30px;color:black;width:50px">
+
+<p>How many cats are currently at your shelter? </p>
+<input type="number" ng-model="fludata.model.catNumber" style="height:30px;color:black;width:50px">
+
+
+<p>How many sick visits occurred during the past week? </p>
+<input type="number" ng-model="fludata.model.sickNumber" style="height:30px;color:black;width:50px">
+
+<p></p>
+<div ng-show="fludata.model.sickNumber!=null">
+<p>Please identify the type and number </p>
+<span>Number of Cats</span><input type="number" ng-model="fludata.model.respCats" style="height:30px;color:black;width:50px"> 
+<span>Number of Dogs</span><input type="number" ng-model="fludata.model.respDogs" style="height:30px;color:black;width:50px">
+<hr>
+<div ng-show="fludata.model.sickNumber!=null">
+  <p>Is canine influenza suspected in any of these animals?</p>
+  <select ng-model="fludata.model.suspectInfluenza" style="height:30px;color:black">
+    <option value="CIV_SUSP" >Yes</option>
+    <option >No</option>
+  </select>
+   </div>
+
+<p></p>
+ <div ng-show="fludata.model.suspectInfluenza=='CIV_SUSP'">
+<p>Please identify the type and number </p>
+<span>Number of Cats</span><input type="number" ng-model="fludata.model.infCats" style="height:30px;color:black;width:50px">
+<span>Number of Dogs</span><input type="number" ng-model="fludata.model.infDogs" style="height:30px;color:black;width:50px">
+</div>
+<p></p>
+
+<div ng-show="fludata.model.suspectInfluenza!=null">
+  <p>Were any samples found positive for influenza this week?</p>
+  <select ng-model="fludata.model.infSamples" style="height:30px;color:black">
+    <option value="CIV_PROB" >Yes</option>
+    <option >No</option>
+  </select>
+   </div>
+
+<p></p>
+<button class="btn btn-lg btn-info" ng-click="goFinalStep()">Finish</button>

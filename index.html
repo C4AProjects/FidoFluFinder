@@ -1,5 +1,8 @@
 <html>
 <head>
+	<title>FidoFluFinder</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="site/css/bootstrap.min.css">
 	<link rel="stylesheet" href="site/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="site/css/style.css">
@@ -13,17 +16,17 @@
 				background: rgba(42, 170, 42, 0.7);
 				">
 				<div class="inner">
-					<h3 class="masthead-brand">FIDO</h3>
+					<h3 class="masthead-brand">FIDO FLU FINDER</h3>
 
 					<ul class="nav masthead-nav">
 						<li class="active">
 							<a href="#">Home</a>
 						</li>
 						<li>
-							<a href="#">About</a>
+							<a href="#/viewdata">View Data</a>
 						</li>
 						<li>
-							<a href="#">Contact</a>
+							<a href="#/aboutus">About Us</a>
 						</li>
 
 					</ul>
@@ -31,26 +34,34 @@
 			</div>
 
 			<div class="inner cover">
-			<div ui-view></div>
+				<div ui-view></div>
 				
-					</div>
-
-
-				</div>
 			</div>
-		</div>
-		<div class="container">
-			Designed by <a href="http://coders4africa.com" target=
-			"_blank">Coders4Africa</a>
-		</div>
-		<script src="site/js/angular.min.js"></script>
-		<script src="site/js/ui-bootstrap.min.js"></script>
-		<script src="site/js/angular-ui-router.min.js"></script>
-		<script src="site/js/ui-boostrap.tpl.min.js"></script>
-		<script src="site/module.js"></script>
-		<script src="site/app.js"></script>
 
-	</body>
-	</html>
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	Designed by <a href="http://coders4africa.com" target=
+	"_blank">Coders4Africa</a>
+</div>
+<script src="site/js/angular.min.js"></script>
+<script src="site/js/ui-bootstrap.min.js"></script>
+<script src="site/js/angular-ui-router.min.js"></script>
+<script src="site/js/ui-boostrap.tpl.min.js"></script>
+<script src="site/module.js"></script>
+<!-- all controllers -->
+<script src="site/controllers/welcome.ctrl.js"></script>
+<script src="site/controllers/step1.ctrl.js"></script>
+<script src="site/controllers/shelter.ctrl.js"></script>
+<script src="site/controllers/petowner.ctrl.js"></script>
+<!-- all factories -->
+<script src="site/factories/places.fact.js"></script>
+<!-- and the rest (routing etc..) -->
+<script src="site/app.js"></script>
+
+</body>
+</html>
 
 

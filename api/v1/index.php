@@ -34,7 +34,9 @@ date_default_timezone_set('Africa/Accra');
  * Routing
  */
 //$app->get('/geocode/:address','getGeocode');
-
+$app->get(    '/location/:query',      'getLocation');
+$app->get(    '/cities/:query',      'getCities');
+$app->get(    '/zipcodes/:query',      'getZipcodes');
 $app->get(    '/:collection',      '_list');
 $app->post(   '/:collection',      '_create');
 $app->get(    '/:collection/:id',  '_read');
@@ -105,6 +107,42 @@ $app->post('/upload/upload/files/:folder', function($folder) use ($app) {
   }
 
 });
+
+
+
+function getCities($state){
+  $data = searchCities(
+    MONGO_HOST, 
+    MONGO_DB, 
+    "places",
+    $state
+    ); 
+
+  show($data);
+}
+
+function getZipcodes($city){
+  $data = searchZipcodes(
+    MONGO_HOST, 
+    MONGO_DB, 
+    "places",
+    $city
+    ); 
+
+  show($data);
+}
+
+function getLocation($zip){
+  $data = getLocationByZipCode(
+    MONGO_HOST, 
+    MONGO_DB, 
+    "places",
+    intval($zip)
+    ); 
+  
+  show($data);
+}
+
 
 
 /*function getGeocode(){
@@ -291,7 +329,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
       });
 
       $app->get("/", function() {
-        echo "<h1>SUGUFI API</h1> <h3>".$_SERVER['REMOTE_ADDR']."</h3>";
+        echo "<h1>FIDO API</h1> <h3>".$_SERVER['REMOTE_ADDR']."</h3>";
       });
 
 
