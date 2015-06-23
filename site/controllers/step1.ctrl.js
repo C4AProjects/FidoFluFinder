@@ -11,16 +11,11 @@ angular.module('app').controller('step1Ctrl',function($scope,FluData,$state){
     "Connecticut",
     "Delaware",
     "District Of Columbia"];
-    $scope.cities=['Bill de Blasio (D) New York City, NY.',
-'Eric Garcetti (D) Los Angeles, CA.',
-'Rahm Emanuel (D) Chicago, IL.',
-'Annise Parker (D) Houston, TX.',
-'Michael Nutter (D) Philadelphia, PA.',
-'Greg Stanton (D) Phoenix, AZ.',
-'Ivy Taylor (D) San Antonio, TX.',
-'Kevin Faulconer (R) San Diego, CA.'];
+    $scope.cities=["Acampo",
+    "Acton","Adelaide","Encino","Escalon",
+    "Media","Medinah","Medora"];
 
-$scope.zipcodes=['60001','60002','60003','60004'];
+$scope.zipcodes=['60001','60002','60003','60004','60005'];
     $scope.goStep2 = function() {
         if($scope.fludata.model.usertype=='Pet Owner')
     $state.go('petowner');

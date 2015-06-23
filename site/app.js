@@ -38,8 +38,8 @@
         })
          .state('viewdata', {
             url: '/viewdata',
-            templateUrl: 'site/templates/viewdata.html'
-            //controller: 'shelterCtrl'
+            templateUrl: 'site/templates/viewdata.html',
+            controller: 'viewdataCtrl'
         })
          .state('aboutus', {
             url: '/aboutus',
