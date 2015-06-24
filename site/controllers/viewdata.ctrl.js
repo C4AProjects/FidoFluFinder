@@ -8,6 +8,7 @@ angular.module('app').controller('viewdataCtrl',function($scope,FluData,$state,p
   $scope.choices=["Pet Owners","Shelter Representatives"];
   $scope.filter="";
   $scope.$watch('filter', function(newVal) {    
+    $scope.resetMarkers();
     if (newVal=="Pet Owners") {
         if(owners) {
             //get location data for markers
@@ -42,9 +43,11 @@ if(shelters) {
     }
 });
 
-$scope.$watch('fluMarkers', function(newVal) { 
+$scope.resetMarkers=function() { 
+    $scope.fluMarkers={};
+    $scope.markers={};
     $scope.markers=$scope.fluMarkers;
-});
+};
   var local_icons = {
     default_icon: {},
     virus_icon: {
