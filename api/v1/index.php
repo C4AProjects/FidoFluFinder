@@ -34,6 +34,8 @@ date_default_timezone_set('Africa/Accra');
  * Routing
  */
 //$app->get('/geocode/:address','getGeocode');
+$app->get(    '/owners/:query',      'getOwnerFluData');
+$app->get(    '/shelters/:query',      'getShelterFluData');
 $app->get(    '/location/:query',      'getLocation');
 $app->get(    '/cities/:query',      'getCities');
 $app->get(    '/zipcodes/:query',      'getZipcodes');
@@ -109,6 +111,26 @@ $app->post('/upload/upload/files/:folder', function($folder) use ($app) {
 });
 
 
+function getOwnerFluData($state){
+  $data = searchFlu(
+    MONGO_HOST, 
+    MONGO_DB, 
+    "petowners",
+    $state
+    ); 
+
+  show($data);
+}
+function getShelterFluData($state){
+  $data = searchFlu(
+    MONGO_HOST, 
+    MONGO_DB, 
+    "shelters",
+    $state
+    ); 
+
+  show($data);
+}
 
 function getCities($state){
   $data = searchCities(

@@ -19,7 +19,14 @@
         .state('step1', {
             url: '/step1',
             templateUrl: 'site/templates/step1.html',
-            controller: 'step1Ctrl'
+            controller: 'step1Ctrl',
+             resolve: {
+                    statelist: function (places) {
+                        return places.getAllStates().error(function (data) {
+                            console.log("error: "+data);
+                        });
+                    }
+                }
         })
         .state('step2', {
             url: '/step2',
@@ -39,7 +46,19 @@
          .state('viewdata', {
             url: '/viewdata',
             templateUrl: 'site/templates/viewdata.html',
-            controller: 'viewdataCtrl'
+            controller: 'viewdataCtrl',
+             resolve: {
+                    owners: function (places) {
+                        return places.getOwnerFludata().error(function (data) {
+                            console.log("error: "+data);
+                        });
+                    },
+                    shelters: function (places) {
+                        return places.getShelterFludata().error(function (data) {
+                            console.log("error: "+data);
+                        });
+                    }
+                }
         })
          .state('aboutus', {
             url: '/aboutus',

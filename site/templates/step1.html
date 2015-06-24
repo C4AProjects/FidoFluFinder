@@ -7,16 +7,17 @@
 
       <select ng-model="fludata.model.state" style="height:30px;color:black" placeholder="Select State">
       <option value="">Select your State</option>
-        <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
+        <option ng-repeat="item in states" value="{{item.abbreviation}}">{{item.name}}</option>
       </select>
-
+<p></p>
       <select ng-model="fludata.model.city" style="height:30px;color:black">
       <option value="">Select your City</option>
-        <option ng-repeat="item in cities" value="{{item}}">{{item}}</option>
+        <option ng-repeat="item in cities" value="{{item.city}}">{{item.city}}</option>
       </select>
+      <p></p>
       <select ng-model="fludata.model.zipcode" style="height:30px;color:black">
       <option value="">Select your Zipcode</option>
-        <option ng-repeat="item in zipcodes" value="{{item}}">{{item}}</option>
+        <option ng-repeat="item in zipcodes" value="{{item.zip}}">{{item.zip}}</option>
       </select>
 <p></p>
       <button class="btn btn-lg btn-info" ng-click="goStep2()">Continue</button>

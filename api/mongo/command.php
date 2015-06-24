@@ -34,17 +34,39 @@ function super_unique($array,$key)
   $_db = $conn->{$db};   
   $collection = $_db->{$collection};
   $criteria['state'] = $query;    
-  $cursor= $collection->find($criteria)->fields(array('city' => true,'_id'=>false));  
+  $cursor= $collection->find($criteria)->fields(array('city' => true));  
   $cursor->sort(array('city' => 1)); 
   foreach ($cursor as $result) {     
-    //$result['_id'] = $result['_id']->{'$id'};       
+    $result['_id'] = $result['_id']->{'$id'};       
     $output['results'][] = $result;    
   }    
    
   $conn->close();    
-  $names= array_map(create_function('$arr', 'return $arr["city"];'), $output['results']);
- 
-  return $names;    
+if($cursor->count()>0)
+      return $output; 
+    else return array(); 
+}
+
+/**
+ * Look for flu data by state
+ */
+  function searchFlu($server, $db, $collection, $query = null) {    
+   
+  $conn = new MongoClient($server);    
+  $_db = $conn->{$db};   
+  $collection = $_db->{$collection};
+  $criteria['state'] = $query;    
+  $cursor= $collection->find($criteria)->fields(array('lat' => true,'lng' => true,'usertype'=>true,'petType'=>true));  
+  $cursor->sort(array('city' => 1)); 
+  foreach ($cursor as $result) {     
+    $result['_id'] = $result['_id']->{'$id'};       
+    $output['results'][] = $result;    
+  }    
+   
+  $conn->close();    
+ if($cursor->count()>0)
+      return $output; 
+    else return array(); 
 }
 
 /**
