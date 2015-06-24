@@ -5,7 +5,8 @@ angular.module('app').controller('shelterCtrl',function($scope,FluData,$state,pl
     	//Save data and display
 		places.addShelterFludata($scope.fludata.model).success(function(response){
             console.log('saved successfully');
+            $state.go('viewdata');
         });
-		$state.go('viewdata');
+		
 	};
 });

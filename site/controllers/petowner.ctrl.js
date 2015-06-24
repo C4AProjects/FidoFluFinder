@@ -5,7 +5,8 @@ angular.module('app').controller('petownerCtrl',function($scope,FluData,$state,p
 		//Save data and display
 		places.addOwnerFludata($scope.fludata.model).success(function(response){
             console.log('saved successfully');
+            $state.go('viewdata');
         });
-		$state.go('viewdata');
+		
 	};
 });
