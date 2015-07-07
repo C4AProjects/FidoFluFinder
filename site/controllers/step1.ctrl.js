@@ -8,7 +8,10 @@ angular.module('app').controller('step1Ctrl',function($scope,FluData,$state,stat
 $scope.$watch('fludata.model.state', function(newVal) {
     if (newVal) {
         places.getCitiesByState(newVal).success(function(response){
-            $scope.cities=_.uniq(response.results);
+            var uniqueList = _.uniq(response.results, function(item, key, a) { 
+    return item.city;
+});
+            $scope.cities=uniqueList;
         });
     }
 });

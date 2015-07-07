@@ -1,19 +1,20 @@
 <img src="site/images/petowner.jpg" alt="">
 <h1>Pet Owner</h1>
-<p>Do you have a dog or cat? : {{fludata.model.petType}}</p>
-<select ng-model="fludata.model.petType" style="height:30px;color:black">
-  <option>Dog</option>
-  <option>Cat</option>
-</select>
-<div ng-show="fludata.model.petType!=null">
-  <p>Is your {{fludata.model.petType}} sick? </p>
+
+<div class="row">
+<div class="col-lg-5">
+<p>Do you have a dog or cat?</p>
+ <label class="radio-inline"><input type="radio" name="optradio" value="Dog" ng-model="fludata.model.petType">Dog</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="Cat" ng-model="fludata.model.petType">Cat</label>
+
+  <p>Is your pet sick? </p>
   <select ng-model="fludata.model.sick" style="height:30px;color:black">
     <option >Yes</option>
     <option >No</option>
   </select>
  
-  <div ng-show="fludata.model.sick=='Yes'">
-    <p>has your {{fludata.model.petType}} seen a vet?</p>
+  
+    <p>has your pet seen a vet?</p>
     <select ng-model="fludata.model.petSeenVet" style="height:30px;color:black">
      <option value="VET">Yes</option>
      <option >No</option>
@@ -24,7 +25,10 @@
     <option >No</option>
   </select>
 
-  <p>Were samples collected for testing? </p>
+ 
+</div>
+<div class="col-lg-5">
+ <p>Were samples collected for testing? </p>
   <select ng-model="fludata.model.samplesCollected" style="height:30px;color:black">
     <option value="CIV_SAMP">Yes</option>
     <option >No</option>
@@ -34,20 +38,12 @@
   <select ng-model="fludata.model.samplesPositive" style="height:30px;color:black">
     <option value="CIV_PROB">Yes</option>
     <option >No</option>
-  </select>
-
-  <p>Was another diagnosis provided? </p>
-  <select ng-model="fludata.model.otherDiagnosis" style="height:30px;color:black">
-    <option>Yes</option>
-    <option >No</option>
-  </select>
-</div>
-
-<div ng-show="fludata.model.otherDiagnosis=='Yes'">
-  <p>What was the diagnosis? </p>
+  </select> 
+  <p>What other diagnosis was provided? </p>
   <textarea name="" id="" cols="30" rows="5" ng-model="fludata.model.otherDiagnosisValue" style="color:black"></textarea>
 </div>
 
+</div>
 </div>
 <p></p>
 <button class="btn btn-lg btn-info" ng-click="goFinalStep()">Finish</button>

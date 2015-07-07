@@ -1,7 +1,7 @@
 <p>Are you a pet owner / shelter representative?</p>
-      <select ng-model="fludata.model.usertype" style="height:30px;color:black">
-        <option ng-repeat="item in types" value="{{item}}">{{item}}</option>
-      </select>
+      
+      <label class="radio-inline"><input type="radio" name="optradio" value="Pet Owner" ng-model="fludata.model.usertype">Pet Owner</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="Shelter Representative" ng-model="fludata.model.usertype">Shelter Representative</label>
 
       <p>Please specify your location</p>
 

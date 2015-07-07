@@ -5,71 +5,76 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="site/css/bootstrap.min.css">
 	<link rel="stylesheet" href="site/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="site/css/font-awesome.min.css" >
+	<link rel="stylesheet" href="site/css/bootstrap-social.css">
 	<link rel="stylesheet" href="site/css/style.css">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	
 
 </head>
-<body ng-app="app">
-	<div class="site-wrapper">
-		<div class="site-wrapper-inner">
-			<div class="cover-container">
-				<div class="masthead clearfix" style="
-				background: rgba(42, 170, 42, 0.7);
-				">
-				<div class="inner">
-					<h3 class="masthead-brand">FIDO FLU FINDER</h3>
+<body ng-app="app">	
 
-					<ul class="nav masthead-nav">
-						<li class="active">
-							<a href="#">Home</a>
-						</li>
-						<li>
-							<a href="#/viewdata">View Data</a>
-						</li>
-						<li>
-							<a href="#/aboutus">About Us</a>
-						</li>
 
-					</ul>
-				</div>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">FIDO FLU FINDER</a>
 			</div>
-
-			<div class="inner cover">
-				<div ui-view></div>
-				
-			</div>
-
-
+			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#/viewdata">View Data</a></li>
+					<li><a href="#/aboutus">About US</a></li>  
+					<li class="fidoicon">
+						<a class="btn btn-social-icon btn-twitter">
+							<i class="fa fa-twitter fa-inverse"></i>
+						</a>
+					</li>
+					<li class="fidoicon">
+						<a class="btn btn-social-icon btn-facebook">
+							<i class="fa fa-facebook fa-inverse"></i>
+						</a>
+					</li>          
+				</ul>
+			</div><!--/.nav-collapse -->
 		</div>
-	</div>
-</div>
-<!-- <div class="container">
-	Designed by <a href="http://coders4africa.com" target=
-	"_blank">Coders4Africa</a>
-</div> -->
-<script src="site/js/angular.min.js"></script>
-<script src="site/js/ui-bootstrap.min.js"></script>
-<script src="site/js/angular-ui-router.min.js"></script>
-<script src="site/js/ui-bootstrap-tpls.min.js"></script>
-<script src="site/module.js"></script>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<!-- all controllers -->
-<script src="site/controllers/welcome.ctrl.js"></script>
-<script src="site/controllers/step1.ctrl.js"></script>
-<script src="site/controllers/shelter.ctrl.js"></script>
-<script src="site/controllers/petowner.ctrl.js"></script>
-<script src="site/controllers/viewdata.ctrl.js"></script>
-<!-- all factories -->
-<script src="site/factories/places.fact.js"></script>
-<!-- and the rest (routing etc..) -->
-<script src="site/app.js"></script>
+	</nav>
 
-<script src="site/js/angular-leaflet-directive.min.js"></script>
- <script src="http://underscorejs.org/underscore-min.js"></script> 
+	<div class="container inner cover">
+		<div ui-view></div>
+
+	</div>
+
+
+	<script src="site/js/angular.min.js"></script>
+	<script src="site/js/ui-bootstrap.min.js"></script>
+	<script src="site/js/angular-ui-router.min.js"></script>
+	<script src="site/js/ui-bootstrap-tpls.min.js"></script>
+	<script src="site/module.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<!-- all controllers -->
+	<script src="site/controllers/welcome.ctrl.js"></script>
+	<script src="site/controllers/step1.ctrl.js"></script>
+	<script src="site/controllers/shelter.ctrl.js"></script>
+	<script src="site/controllers/petowner.ctrl.js"></script>
+	<script src="site/controllers/viewdata.ctrl.js"></script>
+	<!-- all factories -->
+	<script src="site/factories/places.fact.js"></script>
+	<!-- and the rest (routing etc..) -->
+	<script src="site/app.js"></script>
+
+	<script src="site/js/angular-leaflet-directive.min.js"></script>
+	<script src="http://underscorejs.org/underscore-min.js"></script> 
  <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=geometry">
-</script>
-<script src="site/js/Google.js"></script>
+ </script>
+ <script src="site/js/Google.js"></script>
 
 </body>
 </html>
