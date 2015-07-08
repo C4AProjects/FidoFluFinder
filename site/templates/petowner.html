@@ -1,8 +1,8 @@
-<img src="site/images/petowner.jpg" alt="">
+<!-- <img src="site/images/petowner.jpg" alt=""> -->
 <h1>Pet Owner</h1>
 
 <div class="row">
-<div class="col-lg-5">
+<div class="col-lg-5 col-sm-5">
 <p>Do you have a dog or cat?</p>
  <label class="radio-inline"><input type="radio" name="optradio" value="Dog" ng-model="fludata.model.petType">Dog</label>
 <label class="radio-inline"><input type="radio" name="optradio" value="Cat" ng-model="fludata.model.petType">Cat</label>
@@ -25,15 +25,15 @@
     <option >No</option>
   </select>
 
- 
-</div>
-<div class="col-lg-5">
  <p>Were samples collected for testing? </p>
   <select ng-model="fludata.model.samplesCollected" style="height:30px;color:black">
     <option value="CIV_SAMP">Yes</option>
     <option >No</option>
   </select>
 
+</div>
+<div class="col-lg-5 col-sm-5">
+ 
   <p>Were samples found positive for influenza A? </p>
   <select ng-model="fludata.model.samplesPositive" style="height:30px;color:black">
     <option value="CIV_PROB">Yes</option>

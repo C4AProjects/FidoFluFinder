@@ -10,8 +10,7 @@ body>.container {
   padding: 60px 15px 0;
 }
 
-html,
-body {
+.wrapper{
 /*css for full size background image*/
   background: url(../images/flufidoart_small.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -21,8 +20,14 @@ body {
   height: 100%;
   background-color: #060;
   color: #000;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
- font-size: 20px;
+  
+ opacity:0.8;
+ z-index: 1;
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .btn-social-icon {
@@ -42,6 +47,10 @@ body {
 }
 
 .cover{
-  opacity:0.8;
-  background: white;
+  z-index: 2;
+  color:black;
+  opacity:1;
+  position: relative; 
+  text-shadow: 0 1px 3px rgba(0,0,0,.4);
+ font-size: 20px;
 }
