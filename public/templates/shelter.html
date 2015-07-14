@@ -1,0 +1,129 @@
+<h4>Step 2/2</h4>
+<h1>Shelter Representative</h1>
+
+<div class="row">
+  
+  <div class="col-lg-6 col-sm-6">
+    <p>How many dogs are currently at your shelter? <select ng-model="fludata.model.dogNumber" style="height:30px;color:black">
+  <option >0</option>
+  <option >1</option>
+  <option >2</option>
+  <option >3</option>
+  <option >4</option>
+  <option >5</option>
+  <option >6</option>
+  <option >7</option>
+  <option >8</option>
+  <option >9</option>
+  <option >10</option>
+</select>
+</p>
+
+
+<p>How many cats are currently at your shelter? <select ng-model="fludata.model.catNumber" style="height:30px;color:black">
+  <option >0</option>
+  <option >1</option>
+  <option >2</option>
+  <option >3</option>
+  <option >4</option>
+  <option >5</option>
+  <option >6</option>
+  <option >7</option>
+  <option >8</option>
+  <option >9</option>
+  <option >10</option>
+</select></p>
+
+
+<p>How many sick visits occurred during the past week? <select ng-model="fludata.model.sickNumber" style="height:30px;color:black">
+  <option >0</option>
+  <option >1</option>
+  <option >2</option>
+  <option >3</option>
+  <option >4</option>
+  <option >5</option>
+  <option >6</option>
+  <option >7</option>
+  <option >8</option>
+  <option >9</option>
+  <option >10</option>
+</select></p>
+
+<p></p>
+  <p>Please identify the type and number </p>
+  <span>Number of Cats <select ng-model="fludata.model.respCats" style="height:30px;color:black">
+  <option >0</option>
+  <option >1</option>
+  <option >2</option>
+  <option >3</option>
+  <option >4</option>
+  <option >5</option>
+  <option >6</option>
+  <option >7</option>
+  <option >8</option>
+  <option >9</option>
+  <option >10</option>
+</select></span>
+  <p></p>
+  <span>Number of Dogs</span>
+  <select ng-model="fludata.model.respDogs" style="height:30px;color:black">
+  <option >0</option>
+  <option >1</option>
+  <option >2</option>
+  <option >3</option>
+  <option >4</option>
+  <option >5</option>
+  <option >6</option>
+  <option >7</option>
+  <option >8</option>
+  <option >9</option>
+  <option >10</option>
+</select>
+  </div>
+  <div class="col-lg-5 col-sm-5">
+    
+    <p>Is canine influenza suspected in any of these animals? <select ng-model="fludata.model.suspectInfluenza" style="height:30px;color:black">
+      <option value="CIV_SUSP" >Yes</option>
+      <option >No</option>
+    </select></p>
+    
+  
+  <p></p>
+    <p>Please identify the type and number </p>
+    <span>Number of Cats <select ng-model="fludata.model.infCats" style="height:30px;color:black">
+  <option >0</option>
+  <option >1</option>
+  <option >2</option>
+  <option >3</option>
+  <option >4</option>
+  <option >5</option>
+  <option >6</option>
+  <option >7</option>
+  <option >8</option>
+  <option >9</option>
+  <option >10</option>
+</select></span>
+    <p></p>
+    <span>Number of Dogs <select ng-model="fludata.model.infDogs" style="height:30px;color:black">
+  <option >0</option>
+  <option >1</option>
+  <option >2</option>
+  <option >3</option>
+  <option >4</option>
+  <option >5</option>
+  <option >6</option>
+  <option >7</option>
+  <option >8</option>
+  <option >9</option>
+  <option >10</option>
+</select></span>
+
+ <p>Were any samples found positive for influenza this week? <select ng-model="fludata.model.infSamples" style="height:30px;color:black">
+      <option value="CIV_PROB" >Yes</option>
+      <option >No</option>
+    </select></p>
+  </div>
+</div>
+
+<p></p>
+  <button class="btn btn-lg btn-info" ng-click="goFinalStep()">Finish</button>

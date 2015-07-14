@@ -12,19 +12,19 @@
     <title>Fido Flu Finder</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="public/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="public/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
 
 </head>
 
-<body data-spy="scroll" data-target="#mynav">
+<body data-spy="scroll" data-target="#mynav" >
 
     <!-- Navigation -->
     <nav id="mynav" class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -114,7 +114,7 @@ The current site is designed to meet the immediate need of providing easily acce
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-3">
                  
-                     <img class="img-responsive" src="public/img/dog.png" alt="">
+                     <img class="img-responsive" src="img/dog.png" alt="">
                 </div>
             </div>
 
@@ -131,8 +131,10 @@ The current site is designed to meet the immediate need of providing easily acce
             <div class="row">
              <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Survey<br>please it takes 2 minutes to participate</h2>
-                  <div ui-view></div>
+                    <h2 class="section-heading">Survey<br>please it takes 3 minutes to participate</h2>
+                  
+                       <!-- place to put the code to generate data visualization map -->
+                       <!--   <div ui-view></div> -->
             </div>
 
         </div>
@@ -142,7 +144,7 @@ The current site is designed to meet the immediate need of providing easily acce
     <!-- /.content-section-survey -->
     
     
-     <div id="report" class="content-section-a" ng-controller="viewdataCtrl">
+     <div id="report" class="content-section-a">
 
         <div class="container">
 
@@ -151,13 +153,7 @@ The current site is designed to meet the immediate need of providing easily acce
                     <div class="clearfix"></div>
                     <h2 class="section-heading">View Data<br>actual repartition map</h2>
                     <!-- place to put the code to generate data visualization map -->
-        
-<select ng-model="filter" style="height:30px;color:black" placeholder="Select State">
-      <option value="">Select your Filter</option>
-        <option ng-repeat="item in choices" value="{{item}}">{{item}}</option>
-      </select>
-<p></p>
-<leaflet markers="markers" center="center" height="480px" width="100%" layers="layers"></leaflet>
+              
             </div>
 
         </div>
@@ -176,7 +172,7 @@ The current site is designed to meet the immediate need of providing easily acce
               <div class="row">
               
               <div class="col-lg-2">
-              <img class="img-responsive" src="public/img/petowner.jpg" alt=""/>
+              <img class="img-responsive" src="img/petowner.jpg" alt=""/>
                </div>
                 <div class="col-lg-8">
                 <form id="contact-form">
@@ -311,37 +307,14 @@ The current site is designed to meet the immediate need of providing easily acce
     </footer>
 
     <!-- jQuery -->
-    <script src="public/js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="public/js/bootstrap.min.js"></script>
-    <script src="public/js/jquery.easing.min.js"></script>	
-	<script src="public/js/jquery.scrollTo.js"></script>
-	<script src="public/js/wow.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="public/js/custom.js"></script>
-
-    <script src="public/js/angular.min.js"></script>
-	<script src="public/js/ui-bootstrap.min.js"></script>
-	<script src="public/js/angular-ui-router.min.js"></script>
-	<script src="public/js/ui-bootstrap-tpls.min.js"></script>
-	<script src="public/js/module.js"></script>
-	<!-- all controllers -->
-	<script src="public/js/controllers/welcome.ctrl.js"></script>
-	<script src="public/js/controllers/step1.ctrl.js"></script>
-	<script src="public/js/controllers/shelter.ctrl.js"></script>
-	<script src="public/js/controllers/petowner.ctrl.js"></script>
-	<script src="public/js/controllers/viewdata.ctrl.js"></script>
-	<!-- all factories -->
-	<script src="public/js/places.fact.js"></script>
-
-	<script src="public/js/app.js"></script>
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-	<script src="public/js/angular-leaflet-directive.min.js"></script>
-	<script src="http://underscorejs.org/underscore-min.js"></script> 
- <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=geometry">
- </script>
- <script src="public/js/Google.js"></script>
+    <script src="js/custom.js"></script>
     
    <!--Custom Angular JS component for survey and data visualization -->
     
