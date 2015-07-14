@@ -69,8 +69,8 @@ $scope.resetMarkers=function() {
 var local_icons = {
     default_icon: {},
     virus_icon: {
-        iconUrl: 'public/images/virus.png',
-        shadowUrl: 'public/images/shadow.png',
+        iconUrl: 'public/img/virus.png',
+        shadowUrl: 'public/img/shadow.png',
              iconSize:     [24, 24], // size of the icon
             shadowSize:   [20, 24], // size of the shadow
             iconAnchor:   [10, 64], // point of the icon which will correspond to marker's location
