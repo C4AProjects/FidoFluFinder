@@ -6,6 +6,9 @@ angular.module('survey').controller('petownerCtrl',function($scope,FluData,$stat
 		places.addOwnerFludata($scope.fludata.model).success(function(response){
             console.log('saved successfully');
             $state.go('congrats');
+        })
+        .error(function(data){
+        	$state.go('failure');
         });
 		
 	};

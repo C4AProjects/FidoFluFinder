@@ -363,3 +363,11 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+
+.t-right{
+    text-align: right;
+}
+
+.form-group{
+    margin-bottom: 10px !important;
+}

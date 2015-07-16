@@ -1,49 +1,68 @@
-<h4>Step 2/2</h4>
-<h1>Pet Owner</h1>
+<span>Step 2/2 </span>
+<div class="progress">
+ <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">Step 2/2</span></div>
+</div>
+<div class="well">
+  <div class="row">
+    <div class="col-lg-6 col-sm-6">
 
-<div class="row">
-<div class="col-lg-5 col-sm-5">
-<p>Do you have a dog or cat?</p>
- <label class="radio-inline"><input type="radio" name="optradio" value="Dog" ng-model="fludata.model.petType">Dog</label>
-<label class="radio-inline"><input type="radio" name="optradio" value="Cat" ng-model="fludata.model.petType">Cat</label>
+     <div class="form-group col-lg-12 col-sm-12">
+      <label for="owner" class="col-lg-6 col-sm-6 t-right">Do you have a dog or cat? </label> 
+      
+      <label class="radio-inline"><input type="radio" name="optradio" value="Dog" ng-model="fludata.model.petType">Dog</label>
+      <label class="radio-inline"><input type="radio" name="optradio" value="Cat" ng-model="fludata.model.petType">Cat</label>
 
-  <p>Is your pet sick? </p>
-  <select ng-model="fludata.model.sick" style="height:30px;color:black">
-    <option >Yes</option>
-    <option >No</option>
-  </select>
- 
-  
-    <p>has your pet seen a vet?</p>
-    <select ng-model="fludata.model.petSeenVet" style="height:30px;color:black">
-     <option value="VET">Yes</option>
-     <option >No</option>
-   </select>
-   <p>Is canine influenza suspected?  </p>
-   <select ng-model="fludata.model.canineInfluenza" style="height:30px;color:black">
-    <option value="CIV_SUSP">Yes</option>
-    <option >No</option>
-  </select>
+    </div>
 
- <p>Were samples collected for testing? </p>
-  <select ng-model="fludata.model.samplesCollected" style="height:30px;color:black">
+    <div class="form-group col-lg-12 col-sm-12">
+      <label for="sick" class="col-lg-6 col-sm-6 t-right">Is your pet sick?  </label> 
+      <select ng-model="fludata.model.sick" style="height:30px;color:black" class="form-control col-lg-6 col-sm-6">
+        <option >Yes</option>
+        <option >No</option>
+      </select>
+    </div>
+
+    <div class="form-group col-lg-12 col-sm-12">
+      <label for="vet" class="col-lg-6 col-sm-6 t-right">has your pet seen a vet? </label> 
+      <select ng-model="fludata.model.petSeenVet" style="height:30px;color:black" class="form-control col-lg-6 col-sm-6">
+       <option value="VET">Yes</option>
+       <option >No</option>
+     </select>
+   </div>
+
+   <div class="form-group col-lg-12 col-sm-12">   
+     <label for="canineinfluenza" class="col-lg-6 col-sm-6 t-right">Is canine influenza suspected? </label>   
+     <select ng-model="fludata.model.canineInfluenza" style="height:30px;color:black" class="form-control col-lg-6 col-sm-6">
+      <option value="CIV_SUSP">Yes</option>
+      <option >No</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="col-lg-6 col-sm-6">
+ <div class="form-group col-lg-12 col-sm-12">
+   <label for="testing" class="col-lg-6 col-sm-6 t-right">Were samples collected for testing? </label>   
+   <select ng-model="fludata.model.samplesCollected" style="height:30px;color:black" class="form-control col-lg-6 col-sm-6">
     <option value="CIV_SAMP">Yes</option>
     <option >No</option>
   </select>
-
 </div>
-<div class="col-lg-5 col-sm-5">
- 
-  <p>Were samples found positive for influenza A? </p>
-  <select ng-model="fludata.model.samplesPositive" style="height:30px;color:black">
+<div class="form-group col-lg-12 col-sm-12">
+  <label for="positive" class="col-lg-6 col-sm-6 t-right">Were samples found positive for influenza A? </label>  
+  <select ng-model="fludata.model.samplesPositive" style="height:30px;color:black" class="form-control col-lg-6 col-sm-6">
     <option value="CIV_PROB">Yes</option>
     <option >No</option>
   </select> 
-  <p>What other diagnosis was provided? </p>
-  <textarea name="" id="" cols="30" rows="5" ng-model="fludata.model.otherDiagnosisValue" style="color:black"></textarea>
+</div>
+
+<div class="form-group col-lg-12 col-sm-12">
+<label for="diagnosis" class="col-lg-6 col-sm-6 t-right">What other diagnosis was provided? </label>  
+ <textarea name="" id="" cols="30" rows="5" ng-model="fludata.model.otherDiagnosisValue" style="color:black" class="form-control col-lg-6 col-sm-6"></textarea>
 </div>
 
 </div>
 </div>
-<p></p>
+</div>
+
 <button class="btn btn-lg btn-info" ng-click="goFinalStep()">Finish</button>

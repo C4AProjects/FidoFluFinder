@@ -59,6 +59,11 @@
             url: '/congrats',
             templateUrl: 'public/templates/congrats.html'
             //controller: 'shelterCtrl'
+        })
+         .state('failure', {
+            url: '/failure',
+            templateUrl: 'public/templates/failure.html'
+            //controller: 'shelterCtrl'
         });
        
     }

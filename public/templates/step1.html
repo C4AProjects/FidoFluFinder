@@ -1,24 +1,31 @@
-<h4>Step 1/2</h4>
-<p>Are you a pet owner / shelter representative?</p>
-      
+<span>Step 1/2 </span>
+<div class="progress">
+ <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%"><span class="sr-only">Step 1/2</span></div>
+</div>
+<h4>Identification</h4>
+<div class="well">
+  <div class="form-group">
+  <label for="identification">Are you a pet owner / shelter representative?</label>   
       <label class="radio-inline"><input type="radio" name="optradio" value="Pet Owner" ng-model="fludata.model.usertype">Pet Owner</label>
 <label class="radio-inline"><input type="radio" name="optradio" value="Shelter Representative" ng-model="fludata.model.usertype">Shelter Representative</label>
-
-      <p>Please specify your location</p>
-
+</div>
+ 
+   <div class="form-group">
+ <label for="location">Please specify your location</label>
       <select ng-model="fludata.model.state" style="height:30px;color:black" placeholder="Select State">
       <option value="">Select your State</option>
         <option ng-repeat="item in states" value="{{item.abbreviation}}">{{item.name}}</option>
       </select>
-<p></p>
+
       <select ng-model="fludata.model.city" style="height:30px;color:black">
       <option value="">Select your City</option>
         <option ng-repeat="item in cities" value="{{item.city}}">{{item.city}}</option>
       </select>
-      <p></p>
+      
       <select ng-model="fludata.model.zipcode" style="height:30px;color:black">
       <option value="">Select your Zipcode</option>
         <option ng-repeat="item in zipcodes" value="{{item.zip}}">{{item.zip}}</option>
       </select>
-<p></p>
+</div>
+</div>
       <button class="btn btn-lg btn-info" ng-click="goStep2()">Continue</button>
