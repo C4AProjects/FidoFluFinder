@@ -3,10 +3,10 @@
     toastr.options.positionClass = 'toast-bottom-right';
 
 
-    var apiUrl = "http://localhost/fido/FidoFluFinder/api/v1/";
+    var apiUrl = "http://localhost/FidoFluFinder/api/v1/";
 
     var imageSettings = {
-        imageBasePath: 'http://localhost/fido/FidoFluFinder/api/v1/uploads/',
+        imageBasePath: 'http://localhost/FidoFluFinder/api/v1/uploads/',
         unknownPlayerImageSource: 'nopic-player.png',
         unknownTeamImageSource: 'nopic-team.png'
     };
