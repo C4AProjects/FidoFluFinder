@@ -41,7 +41,7 @@
 
         function boot() {
             registerShelters();
-            log('Sugufi Admin Loaded!', null, true);
+            log('Fido Admin Loaded!', null, true);
 
             router.on('router:route:not-found', function (fragment) {
                 logError('No Route Found', fragment, true);

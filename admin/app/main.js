@@ -34,7 +34,7 @@ function boot (app, viewLocator, system, router, logger) {
     // Enable debug message to show in the console
     system.debug(true);
 
-    app.title = 'Sugufi Admin';
+    app.title = 'Fido Admin';
 
     app.configurePlugins({
         router: true,
