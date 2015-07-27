@@ -15,7 +15,7 @@
 
     var gotoDetails = function (selectedPetowner) {
         if (selectedPetowner) {
-            // var url = '#/petowner/' + selectedPetowner.Id();
+            var url = '#/petowner/' + selectedPetowner.Id();
             router.navigate(url);
         }
     };
@@ -23,6 +23,7 @@
     var onComplete = function (result, error) {
      if (error === false) {
         logger.log(' Petowner Deleted', null, title, true);
+        getPetowners();
     }
 };
 

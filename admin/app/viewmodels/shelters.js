@@ -1,7 +1,7 @@
 ﻿define(['services/fidoDatacontext', 'services/logger', 'config', 'models/fidoModels','plugins/router','durandal/app'], function (datacontext, logger, config, models,router,app) {
     var title = 'Shelters';
 
-    var events = ko.observableArray([]);
+    var shelters = ko.observableArray([]);
 
     var searchText = ko.observable("");
 
@@ -35,7 +35,7 @@ var getShelters = function () {
                 function (item) {
                    return new models.ShelterModel(item);
                });
-            events(mappedShelters);
+            shelters(mappedShelters);
         }
     });
 };
@@ -46,7 +46,7 @@ var onRetrieve = function (data, error) {
         app.trigger('busy', false);
             //map according to model
             var mappedShelters = $.map(data, function (item) { return new models.ShelterModel(item); });
-            events(mappedShelters);
+            shelters(mappedShelters);
         }
     };
 
@@ -82,11 +82,11 @@ var pageIndex = ko.observable(0);
 var pagedList = ko.dependentObservable(function () {
     var size = pageSize();
     var start = pageIndex() * size;
-    return events().slice(start, start + size);
+    return shelters().slice(start, start + size);
 });
 
 var maxPageIndex = ko.dependentObservable(function () {
-    return Math.ceil(events().length / pageSize()) - 1;
+    return Math.ceil(shelters().length / pageSize()) - 1;
 });
 var previousPage = function () {
     if (pageIndex() > 0) {
@@ -141,7 +141,7 @@ var moveToPage = function (index) {
     var vm = {
         activate: activate,
         title: title,
-        events: events,
+        shelters: shelters,
         attached: attached,
         loadShelters:loadShelters,
         shelterModelId:shelterModelId,
