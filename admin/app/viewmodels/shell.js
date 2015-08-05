@@ -55,6 +55,8 @@
             { route: 'users', moduleId: 'users', title: 'Users', nav: true },
 
             { route: 'petowners', moduleId: 'petowners', title: 'Petowners', nav: true },
+
+            { route: 'import', moduleId: 'import', title: 'Import Media', nav: true },
            
             { route: 'shelters', moduleId: 'shelters', title: 'Shelters', nav: true },
 
