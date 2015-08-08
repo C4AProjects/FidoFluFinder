@@ -4,9 +4,9 @@
 
 
     // var apiUrl = "http://fidoflufinder-dev.c4asolution.com/api/v1/";
-var apiUrl = "api/v1/";
+var apiUrl = "../api/v1/";
     var imageSettings = {
-        imageBasePath: 'api/v1/uploads/',
+        imageBasePath: '../api/v1/uploads/',
         unknownPlayerImageSource: 'nopic-player.png',
         unknownTeamImageSource: 'nopic-team.png'
     };
