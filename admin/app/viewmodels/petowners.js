@@ -41,6 +41,7 @@ var DeletePetowner = function (selectedPetowner) {
     }
 };
 var getPetowners = function () {
+    app.trigger('busy', true);
     datacontext.getPetowners(function (data, error) {
         if (error === false) {
             
@@ -50,6 +51,7 @@ var getPetowners = function () {
                    return new models.PetownerModel(item);
                });
             petowners(mappedPetowners);
+            app.trigger('busy', false);
         }
     });
 };

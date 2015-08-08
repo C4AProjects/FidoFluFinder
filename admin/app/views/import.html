@@ -3,18 +3,17 @@
                 <label for='excel_file'>Excel File</label>
                 <input id="xlsxFile" type="file" name="excel_file" accept=".xlsx" required="true" >
             </div>
+<button class="btn btn-primary" data-bind="click:savemedia">Save Data</button>
 
         </form>
-
         <div class="well">
+
     <table class="table table-bordered table-striped">
       <thead class="tableHeader">
         <tr>
           <th>#</th>
           <th>State</th> 
           <th>Source</th> 
-          <th>Date Range</th> 
-         <th style="width:100px">Actions</th> 
         </tr>
       </thead>
         <tbody data-bind="foreach: excelArray">
@@ -23,16 +22,6 @@
                 <td data-bind="html: ($index() + 1)"></td>
                 <td data-bind="html: State"></td>
                 <td data-bind="html: Source"></td>
-                 <td data-bind="html: DateRange"></td>
-                <td class="text-center">                  
-                  <a class="btn btn-info details" href="#">
-                    <i class="icon-eye-open"></i>  
-                  </a>
-                  <a class="btn btn-danger delete" href="#">
-                    <i class="icon-trash"></i> 
-                  </a>
-                </td>         
-                
             </tr>
        
         </tbody>

@@ -35,5 +35,8 @@ angular.module('survey')
 		that.getShelterFludata=function(){
 			return $http.get(serviceBase+'shelters')
 		};
+		that.getMediaFludata=function(){
+			return $http.get(serviceBase+'media')
+		};
        return that;
     }]);

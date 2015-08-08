@@ -28,6 +28,7 @@
     };
 
 var getShelters = function () {
+    app.trigger('busy', true);
     datacontext.getShelters(function (data, error) {
         if (error === false) {
             //map according to model
@@ -36,6 +37,7 @@ var getShelters = function () {
                    return new models.ShelterModel(item);
                });
             shelters(mappedShelters);
+            app.trigger('busy', false);
         }
     });
 };

@@ -3,8 +3,8 @@
     toastr.options.positionClass = 'toast-bottom-right';
 
 
-    var apiUrl = "http://fidoflufinder-dev.c4asolution.com/api/v1/";
-
+    // var apiUrl = "http://fidoflufinder-dev.c4asolution.com/api/v1/";
+var apiUrl = "http://localhost/FidoFluFinder/api/v1/";
     var imageSettings = {
         imageBasePath: 'http://fidoflufinder-dev.c4asolution.com/api/v1/uploads/',
         unknownPlayerImageSource: 'nopic-player.png',
@@ -17,6 +17,8 @@
     var userService = apiUrl + 'users';
     
     var uploadService=apiUrl+'upload/upload/files';
+
+    var mediaService = apiUrl + 'media';
 
     var appTitle = 'FIDO Admin';
 
@@ -37,7 +39,8 @@
         petService: petService,
         shelterService: shelterService,
         userService: userService,
-        uploadService:uploadService
+        uploadService:uploadService,
+        mediaService:mediaService
         
     };
 

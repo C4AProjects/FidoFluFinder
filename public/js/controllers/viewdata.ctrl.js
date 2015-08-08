@@ -21,7 +21,16 @@ $scope.shelters=data;
 });
 
 
-  $scope.choices=["Pet Owners","Shelter Representatives"];
+places.getMediaFludata()
+  .success(function(data){
+$scope.mediaflu=data;
+
+  })
+  .error(function (data) {
+    console.log("error: "+data);
+});
+
+  $scope.choices=["Pet Owners","Shelter Representatives","Media/Laboratory"];
   $scope.filter="";
   $scope.$watch('filter', function(newVal) {    
     $scope.resetMarkers();
@@ -52,6 +61,24 @@ $scope.shelters=data;
                     lat: shelter.lat,
                     lng: shelter.lng,
                     message: shelter.petType,
+                    focus: false,
+                    draggable: false,
+                    icon: local_icons.virus_icon
+                }
+            };
+        }     
+    }
+
+    else if(newVal=="Media/Laboratory"){
+        if($scope.mediaflu) {
+            shelters=$scope.mediaflu;
+            //get location data for markers
+            for (var i = shelters.results.length - 1; i >= 0; i--) {
+                var shelter=shelters.results[i];
+                $scope.fluMarkers[shelter._id]={
+                    lat: shelter.lat,
+                    lng: shelter.lng,
+                    message: shelter.State,
                     focus: false,
                     draggable: false,
                     icon: local_icons.virus_icon

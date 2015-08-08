@@ -5,17 +5,17 @@ define([
     'services/logger', 'viewmodels/shell'],
     function (system, app, config, logger,shell) {
 
-var dynamicSort=function (property) {
-    var sortOrder = 1;
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-    return function (a,b) {
-        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-        return result * sortOrder;
-    }
-}
+        var dynamicSort=function (property) {
+            var sortOrder = 1;
+            if(property[0] === "-") {
+                sortOrder = -1;
+                property = property.substr(1);
+            }
+            return function (a,b) {
+                var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+                return result * sortOrder;
+            }
+        }
 
 //region upload
 var uploadFile=function(file,folder,onRetrieve){
@@ -182,9 +182,9 @@ var uploadFile=function(file,folder,onRetrieve){
             var url = config.userService;
 
             var user = {
-             email : data().email(),
-             _id: data().id()
-         };
+               email : data().email(),
+               _id: data().id()
+           };
             //console.log(token);
             $.ajax({
                 url: url + '/' + user._id,
@@ -260,6 +260,25 @@ var uploadFile=function(file,folder,onRetrieve){
 
         };
 
+        var SaveMedia=function(model,onComplete){
+ var url = config.mediaService;
+            $.ajax({
+                url: url,
+                type: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                processData: false,
+                data: JSON.stringify(model),
+                success: function (result) {
+                    onComplete(result, false);
+                },
+                error: function (result) {
+                    onComplete(result, true);
+                }
+            });
+
+        }
+
         var dataContext = {
 
             getPetowners:getPetowners,
@@ -269,7 +288,7 @@ var uploadFile=function(file,folder,onRetrieve){
 
             getShelters:getShelters,
             getShelterById:getShelterById,
-           
+
             deleteShelter:deleteShelter,
 
             getUsers:getUsers,
@@ -281,7 +300,9 @@ var uploadFile=function(file,folder,onRetrieve){
             Login: Login,
 
             uploadFile:uploadFile,
-            dynamicSort:dynamicSort
+            dynamicSort:dynamicSort,
+
+            SaveMedia:SaveMedia
         };
         return dataContext;
     });
