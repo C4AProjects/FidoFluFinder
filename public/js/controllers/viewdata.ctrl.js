@@ -76,9 +76,9 @@ $scope.mediaflu=data;
             for (var i = shelters.results.length - 1; i >= 0; i--) {
                 var shelter=shelters.results[i];
                 $scope.fluMarkers[shelter._id]={
-                    lat: shelter.lat,
-                    lng: shelter.lng,
-                    message: shelter.State,
+                    lat: shelter.Latitude,
+                    lng: shelter.Longitude,
+                    message: shelter.Location,
                     focus: false,
                     draggable: false,
                     icon: local_icons.virus_icon

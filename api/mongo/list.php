@@ -1,6 +1,6 @@
 <?php
 
-define('MONGO_LIST_DEFAULT_PAGE_SIZE',50);
+define('MONGO_LIST_DEFAULT_PAGE_SIZE',500);
 define('MONGO_LIST_MAX_PAGE_SIZE',true); // set to a number to enforce a max page size
 
 /**

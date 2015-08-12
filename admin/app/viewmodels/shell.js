@@ -59,6 +59,7 @@
             { route: 'import', moduleId: 'import', title: 'Import Media', nav: true },
            
             { route: 'shelters', moduleId: 'shelters', title: 'Shelters', nav: true },
+            { route: 'media', moduleId: 'media', title: 'Media', nav: true },
 
             { route: 'user/:id', moduleId: 'user', title: 'User' },
             { route: 'shelter/:id', moduleId: 'shelter', title: 'Shelter' },

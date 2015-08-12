@@ -3,7 +3,7 @@ define(['services/fidoDatacontext', 'plugins/router',
     function (datacontext, router, system, logger, models, config,app) {
 
         var model = ko.observable();
-        var title = "Shelter Details";
+        var title = "Import From Excel";
         var excelArray=ko.observableArray();
         
         var self = this;
@@ -16,8 +16,8 @@ define(['services/fidoDatacontext', 'plugins/router',
 
         //Run when navigating to another view
         var cancel = function () {
-           router.navigateBack();
-       };
+         router.navigateBack();
+     };
 
         //Run when navigating to another view
         var deactivate = function () {
@@ -38,55 +38,52 @@ define(['services/fidoDatacontext', 'plugins/router',
             // Do somehting with sheets. It's a
             // Javascript object with sheet names
             // as keys and data as value in form of 2D array
-            excelArray(sheets.Sheet1);
+            excelArray(sheets[Object.keys(sheets)[0]]);
             app.trigger('busy', false);
         });
             });
         });
     };
-var count=0;
-var errorcount=0;
+    var count=0;
+    var errorcount=0;
     var savemedia=function(){
-        var index;
+        //var index;
+datacontext.SaveMedia(excelArray());
+        /*var googleGeocoder = new GeocoderJS.createGeocoder({'provider': 'google'});
 
-        var googleGeocoder = new GeocoderJS.createGeocoder({'provider': 'google'});
-
-app.trigger('busy', true);
-        for (index = 0; index < excelArray().length; ++index) {
+        app.trigger('busy', true);
+        var length=excelArray().length;
+        for (index = 0; index < length; ++index) {
             var item=excelArray()[index];
             var labstate=item.State ;
             if(labstate)
 
               googleGeocoder.geocode(labstate, function(result) {
-                item.lat=result[0].latitude;
-                item.lng=result[0].longitude;
-                datacontext.SaveMedia(item,mediaCallback);
-            });
+                if(result[0]){
+                   item.lat=result[0].latitude;
+                   item.lng=result[0].longitude;
+               }               
+               count++;
+               console.log(count);
+               console.log(item);
+               if(count>=length){
+                
+            }
+        });
           
       }
-     app.trigger('busy', false); 
+      app.trigger('busy', false);*/ 
   }
-var mediaCallback=function(data,error){
-if(error)errorcount++;
-    else
-        count++;
-console.log(count+' Saved \n'+errorcount+' failed');
-}
-  var readFile=function(item){
-    console.log(item);
-}
 
-var vm = {
+  var vm = {
     attached:attached,
     activate: activate,
     deactivate: deactivate,
     model: model,
     cancel: cancel,
     title: title,
-    readFile:readFile,
     excelArray:excelArray,
     savemedia:savemedia
-
 };
 
 return vm;

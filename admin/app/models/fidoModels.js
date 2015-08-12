@@ -3,6 +3,28 @@
     var shortText = function (limit, text) {
         return ((text && text.length > limit) ? text.substring(0, limit) + '...' : text);
     };
+
+    var MediaModel=function(data){
+        if (!data) {
+            data = {};
+        }
+
+        this.Id = ko.observable(data._id);
+        this.Source = ko.observable(data.Source);
+        this.Location = ko.observable(data.Location);
+        this.DateRange = ko.observable(data.state);
+        this.Notes=ko.observable(data.Notes);
+        this.Cat=ko.observable(data.Cat);
+        this.Vet=ko.observable(data.Vet);
+        this.CIV_SUSP=ko.observable(data.CIV_SUSP);
+        this.CIV_PROB=ko.observable(data.CIV_PROB);
+        this.CIV_SAMP=ko.observable(data.CIV_SAMP);
+        this.CIV_CONF=ko.observable(data.CIV_CONF);
+        this.Ref=ko.observable(data.Ref);
+        this.Latitude=ko.observable(data.Latitude);
+        this.Longitude=ko.observable(data.Longitude);
+        this.CreatedDate=ko.observable(data.CreatedDate);
+    };
    
     var PetownerModel=function(data){
         if (!data) {
@@ -78,6 +100,7 @@
         RegisterModel:RegisterModel,
         PetownerModel:PetownerModel,
         ShelterModel:ShelterModel,
+        MediaModel:MediaModel
     };
 
 

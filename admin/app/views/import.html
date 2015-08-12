@@ -12,16 +12,20 @@
       <thead class="tableHeader">
         <tr>
           <th>#</th>
-          <th>State</th> 
+          <th>Location</th> 
           <th>Source</th> 
+          <th>Longitude</th> 
+          <th>Latitude</th> 
         </tr>
       </thead>
         <tbody data-bind="foreach: excelArray">
             <!--label-success  label-important-->
             <tr class="details">
                 <td data-bind="html: ($index() + 1)"></td>
-                <td data-bind="html: State"></td>
+                <td data-bind="html: Location"></td>
                 <td data-bind="html: Source"></td>
+                <td data-bind="html: Longitude"></td>
+                <td data-bind="html: Latitude"></td>
             </tr>
        
         </tbody>

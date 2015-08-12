@@ -39,6 +39,59 @@ var uploadFile=function(file,folder,onRetrieve){
         }
     });
 };
+
+//region Media
+var getMedia = function (onRetrieve) {
+    var url = config.mediaService;
+    return $.ajax({
+        url: url,
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function (data) {
+            data.results.sort(dynamicSort("State"));
+            onRetrieve(data, false);
+        },
+        error: function (data) {
+            onRetrieve(data, true);
+        }
+    });
+};
+
+var getMediaById = function (id, onRetrieve) {
+    var url = config.mediaService + '/' + id;
+    return $.ajax({
+        url: url,
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function (data) {
+            onRetrieve(data, false);
+        },
+        error: function (data) {
+            onRetrieve(data, true);
+        }
+    });
+};
+
+var deleteMedia = function (id, onComplete) {
+    var url = config.mediaService;
+            //console.log(token);
+            $.ajax({
+                url: url+'/'+id,
+                type: 'DELETE',
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (result) {
+                    onComplete(result, false);
+                },
+                error: function (result) {
+                    onComplete(result, true);
+                }
+            });
+
+        };
+
+        //#endregion
+
         //region Petowners
         var getPetowners = function (onRetrieve) {
             var url = config.petService;
@@ -182,9 +235,9 @@ var uploadFile=function(file,folder,onRetrieve){
             var url = config.userService;
 
             var user = {
-               email : data().email(),
-               _id: data().id()
-           };
+             email : data().email(),
+             _id: data().id()
+         };
             //console.log(token);
             $.ajax({
                 url: url + '/' + user._id,
@@ -260,49 +313,64 @@ var uploadFile=function(file,folder,onRetrieve){
 
         };
 
-        var SaveMedia=function(model,onComplete){
- var url = config.mediaService;
-            $.ajax({
-                url: url,
-                type: 'POST',
-                contentType: 'application/json',
-                dataType: 'json',
-                processData: false,
-                data: JSON.stringify(model),
-                success: function (result) {
-                    onComplete(result, false);
-                },
-                error: function (result) {
-                    onComplete(result, true);
-                }
-            });
+        var PostMedia=function(model,onComplete){
+            app.trigger('busy', true);
+           var url = config.mediaService;
+           $.ajax({
+            url: url,
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            processData: false,
+            data: JSON.stringify(model),
+            success: function (result) {
+                app.trigger('busy', false);
+            },
+            error: function (result) {
+                logger.log(result, null, 'error', true);
+            }
+        });
 
+       }
+       var SaveMedia=function(mediaArray){
+        var length=mediaArray.length;
+           for (index = 0; index < length; ++index) {
+            var item=mediaArray[index];
+            PostMedia(item,null);
         }
 
-        var dataContext = {
+    }
 
-            getPetowners:getPetowners,
-            getPetownerById:getPetownerById,
-            
-            deletePetowner:deletePetowner,
+    var dataContext = {
 
-            getShelters:getShelters,
-            getShelterById:getShelterById,
+        getMedia:getMedia,
+        getMediaById:getMediaById,
 
-            deleteShelter:deleteShelter,
+        deleteMedia:deleteMedia,
 
-            getUsers:getUsers,
-            searchUsers:searchUsers,
-            updateUser:updateUser,
-            getUserById:getUserById,
+        getPetowners:getPetowners,
+        getPetownerById:getPetownerById,
 
-            RegisterUser: RegisterUser,
-            Login: Login,
+        deletePetowner:deletePetowner,
 
-            uploadFile:uploadFile,
-            dynamicSort:dynamicSort,
+        getShelters:getShelters,
+        getShelterById:getShelterById,
 
-            SaveMedia:SaveMedia
-        };
-        return dataContext;
-    });
+        deleteShelter:deleteShelter,
+
+        getUsers:getUsers,
+        searchUsers:searchUsers,
+        updateUser:updateUser,
+        getUserById:getUserById,
+
+        RegisterUser: RegisterUser,
+        Login: Login,
+
+        uploadFile:uploadFile,
+        dynamicSort:dynamicSort,
+
+        SaveMedia:SaveMedia,
+        PostMedia:PostMedia
+    };
+    return dataContext;
+});
