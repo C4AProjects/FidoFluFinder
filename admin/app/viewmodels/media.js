@@ -42,6 +42,7 @@ var DeleteMediaItem = function (selectedMediaItem) {
 };
 var getMedia = function () {
     app.trigger('busy', true);
+    //media=ko.observableArray();
     datacontext.getMedia(function (data, error) {
         if (error === false) {
             

@@ -341,6 +341,25 @@ var deleteMedia = function (id, onComplete) {
 
     }
 
+    var deleteMedia = function (id, onComplete) {
+            var url = config.mediaService;
+            //console.log(token);
+            $.ajax({
+                url: url+'/'+id,
+                type: 'DELETE',
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (result) {
+                    onComplete(result, false);
+                },
+                error: function (result) {
+                    onComplete(result, true);
+                }
+            });
+
+        };
+
+
     var dataContext = {
 
         getMedia:getMedia,
@@ -370,7 +389,8 @@ var deleteMedia = function (id, onComplete) {
         dynamicSort:dynamicSort,
 
         SaveMedia:SaveMedia,
-        PostMedia:PostMedia
+        PostMedia:PostMedia,
+        deleteMediaItem:deleteMedia
     };
     return dataContext;
 });

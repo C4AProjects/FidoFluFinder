@@ -81,7 +81,7 @@ $scope.mediaflu=data;
                     message: shelter.Location,
                     focus: false,
                     draggable: false,
-                    icon: local_icons.virus_icon
+                    icon: local_icons.default_icon
                 }
             };
         }     
@@ -94,8 +94,8 @@ $scope.resetMarkers=function() {
     $scope.markers=$scope.fluMarkers;
 };
 var local_icons = {
-    default_icon: {},
-    virus_icon: {
+    default_icon: {}
+    /*virus_icon: {
         iconUrl: 'public/img/virus.png',
         shadowUrl: 'public/img/shadow.png',
              iconSize:     [24, 24], // size of the icon
@@ -103,7 +103,7 @@ var local_icons = {
             iconAnchor:   [10, 64], // point of the icon which will correspond to marker's location
             shadowAnchor: [4, 62],  // the same for the shadow
             popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-        }
+        }*/
     };
 
     angular.extend($scope, {

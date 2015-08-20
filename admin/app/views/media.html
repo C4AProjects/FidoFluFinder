@@ -25,6 +25,7 @@
             <th>CIV_PROB</th>
             <th>CIV_SAMP</th>
             <th>CIV_CONF</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,11 @@
             <td><span data-bind="text: $data.CIV_PROB"></span></td>
             <td><span data-bind="text: $data.CIV_SAMP"></span></td>
             <td><span data-bind="text: $data.CIV_CONF"></span></td>
+            <td class="text-center">                
+                  <a class="btn btn-danger delete" href="#">
+                    <i class="icon-trash"></i> 
+                  </a>
+                </td>   
           </tr>
         <!-- /ko -->
         </tbody>
