@@ -42,18 +42,17 @@ var DeleteMediaItem = function (selectedMediaItem) {
 };
 var getMedia = function () {
     app.trigger('busy', true);
-    //media=ko.observableArray();
+    
     datacontext.getMedia(function (data, error) {
         if (error === false) {
-            
+            app.trigger('busy', false);
             //map according to model
             var mappedMedia = $.map(data.results,
                 function (item) {
                    return new models.MediaModel(item);
                });
             media(mappedMedia);
-            if(media().length==0)media.push(new models.MediaModel());
-            app.trigger('busy', false);
+            if(media().length==0)media.push(new models.MediaModel());  
         }
     });
 };
@@ -83,8 +82,7 @@ var onRetrieve = function (data, error) {
     var attached = function (view) {
         bindEventToList(view, '.details', gotoDetails);
         bindEventToList(view, '.delete', DeleteMediaItem);
-        // apply DataTables
-          $("#media").DataTable( { responsive: true } );
+       
     };
 
     var bindEventToList = function (rootSelector, selector, callback, eventName) {
@@ -96,7 +94,42 @@ var onRetrieve = function (data, error) {
         });
     };
 
+//#region pagination
 
+var pageSize = ko.observable(20);
+var pageIndex = ko.observable(0);
+
+var pagedList = ko.dependentObservable(function () {
+    var size = pageSize();
+    var start = pageIndex() * size;
+    return media().slice(start, start + size);
+});
+
+var maxPageIndex = ko.dependentObservable(function () {
+    return Math.ceil(media().length / pageSize()) - 1;
+});
+var previousPage = function () {
+    if (pageIndex() > 0) {
+        pageIndex(pageIndex() - 1);
+    }
+};
+var nextPage = function () {
+    if (pageIndex() < maxPageIndex()) {
+        pageIndex(pageIndex() + 1);
+    }
+};
+var allPages = ko.dependentObservable(function () {
+    var pages = [];
+    for (var i = 0; i <= maxPageIndex() ; i++) {
+        pages.push({ pageNumber: (i + 1) });
+    }
+    return pages;
+});
+var moveToPage = function (index) {
+    pageIndex(index);
+};
+
+        //#endregion
     //Run when navigating to another view
     var addNew = function () {
             var url = '#/mediaItem/0';
@@ -122,7 +155,16 @@ var onRetrieve = function (data, error) {
      
         refresh:refresh,
         searchText: searchText,
-           
+           //#region Pagination
+            pagedList: pagedList,
+            previousPage: previousPage,
+            nextPage: nextPage,
+            allPages: allPages,
+            moveToPage: moveToPage,
+            pageIndex: pageIndex,
+            maxPageIndex: maxPageIndex,
+
+            //#endregion
         };
 
         return vm;

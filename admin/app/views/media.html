@@ -14,9 +14,10 @@
         </div>
     </div>
     <!-- the table we apply DataTables magic too, data populated with Knockout Foreach iterating over view model -->
-      <table id="media" class="table table-striped table-bordered">
+      <table id="media" class="table table-striped table-bordered" data-bind="if: media().length > 0">
         <thead>
           <tr>
+          <th></th>
             <th>Source</th>
             <th>Location</th>
             <th>Cat</th>
@@ -29,8 +30,9 @@
           </tr>
         </thead>
         <tbody>
-        <!-- ko foreach: media() -->
+        <!-- ko foreach: pagedList() -->
           <tr>
+          <td data-bind="html: ($index() + 1) + (($root.pageIndex()) * 20)"></td>
             <td><span data-bind="text: $data.Source"></span></td>
             <td><span data-bind="text: $data.Location"></span></td>
             <td><span data-bind="text: $data.Cat"></span></td>
@@ -48,7 +50,17 @@
         <!-- /ko -->
         </tbody>
       </table>
-                        
+             <div class="pagination">
+       <ul>
+           <li data-bind="css: { disabled: pageIndex() === 0 }"><a href="#" data-bind="    click: previousPage">Previous</a></li>
+       </ul>
+    <ul data-bind="foreach: allPages">
+        <li data-bind="css: { active: $data.pageNumber === ($root.pageIndex() + 1) }"><a href="#" data-bind="    text: $data.pageNumber, click: function () { $root.moveToPage($data.pageNumber - 1); }"></a></li>
+    </ul>
+       <ul>
+           <li data-bind="css: { disabled: pageIndex() === maxPageIndex() }"><a href="#" data-bind="    click: nextPage">Next</a></li>
+       </ul>
+   </div>            
     </div>
  </div>
 </section>
